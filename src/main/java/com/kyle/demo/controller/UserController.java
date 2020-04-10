@@ -94,6 +94,11 @@ public class UserController {
     	return userService.update(user);
     }
     
+    @PostMapping(value="/update2")
+    public boolean update2(@RequestBody User user) {
+    	return userService.uupdate(user);
+    }
+    
     //获取图形验证码
     @GetMapping(value="/get7")
     public void get7(HttpServletRequest request,HttpServletResponse response) throws IOException {

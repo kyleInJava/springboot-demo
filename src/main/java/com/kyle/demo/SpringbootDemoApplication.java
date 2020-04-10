@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@MapperScan("com.kyle.demo.dao")
+//@MapperScan("com.kyle.demo.dao")
 public class SpringbootDemoApplication {
 
 	public static void main(String[] args) {

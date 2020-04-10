@@ -22,7 +22,6 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * restTemplate+httpClient 配置连接池来实现网络调用
- * @author kyle
  *
  */
 @Configuration

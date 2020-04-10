@@ -50,7 +50,7 @@ pagehelper:
   params: count=countSql
   
   
-#打印sql
-logging:
-  level:
-    com.kyle.demo.dao : debug
+#打印sql，在logback.xml中配置了，这里不用配置
+#logging:
+#  level:
+#    com.kyle.demo.dao : debug

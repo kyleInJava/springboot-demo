@@ -14,4 +14,6 @@ public interface UserService {
 
 	boolean update(User user);
 
+	boolean uupdate(User user);
+
 }
