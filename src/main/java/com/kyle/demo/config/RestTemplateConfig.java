@@ -1,4 +1,4 @@
-package com.kyle.demo.common;
+package com.kyle.demo.config;
 
 import java.nio.charset.Charset;
 import java.util.List;

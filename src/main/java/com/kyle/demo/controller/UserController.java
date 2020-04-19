@@ -7,15 +7,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
-import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -31,6 +28,7 @@ import com.kyle.demo.entity.DUR;
 import com.kyle.demo.entity.User;
 import com.kyle.demo.service.UserService;
 import com.kyle.demo.util.ConvertUtil;
+import com.kyle.demo.util.RedisTool;
 
 @RestController
 @RequestMapping("user")

@@ -3,17 +3,21 @@ package com.kyle.demo.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.jws.soap.SOAPBinding.Use;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import com.alibaba.fastjson.JSONObject;
 import com.kyle.demo.common.PageBean;
 import com.kyle.demo.dao.UserMapper;
 import com.kyle.demo.entity.User;
 import com.kyle.demo.service.UserService;
 import com.kyle.demo.util.PageUtil;
+import com.kyle.demo.util.RedisTool;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,10 +27,24 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private PlatformTransactionManager txManager;
+	
+	@Autowired
+    private RedisTool redisTool;
 
 	@Override
 	public User getUser(User user) {
-		return userMapper.getUserById(user.getId());
+		User object = (User)redisTool.get("user:"+user.getId());
+		System.out.println(object);
+		String jsonString = JSONObject.toJSONString(object);
+		System.out.println(jsonString);
+		if(object == null) {
+			User u = userMapper.getUserById(user.getId());
+			if(u != null) {
+				redisTool.set("user:"+user.getId(),u);
+			}
+			return u;
+		}
+		return object;
 	}
 
 	@Override

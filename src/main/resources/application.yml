@@ -15,7 +15,7 @@ spring:
       username: root
       password: root
       #最大活跃数
-      maxActive: 50
+      maxActive: 600
       #初始化数量
       initialSize : 5
       minIdle: 5
@@ -36,6 +36,20 @@ spring:
       testOnReturn: false
       #配置监控统计拦截的filters，去掉后监控界面sql将无法统计
       filters: stat
+  redis: 
+    database: 0
+    host: 192.168.242.128
+    port: 6379
+    password: 
+    jedis:
+      pool:
+        max-active: 600
+        max-wait: -1
+        min-idle: 10
+        max-idle: 50
+    timeout: 1000
+      
+          
        
 #扫描映射文件
 mybatis:
