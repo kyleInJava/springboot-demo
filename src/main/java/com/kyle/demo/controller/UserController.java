@@ -99,6 +99,19 @@ public class UserController {
     	return userService.uupdate(user);
     }
     
+    @PostMapping("/setUser")
+    public String setUserInfo(@RequestBody User user,HttpServletRequest request) {
+    	request.getSession().setAttribute("user", user);
+    	return "success";
+    }
+    
+    @GetMapping("/getUser")
+    public User getUser(HttpServletRequest request) {
+    	User user = (User)request.getSession().getAttribute("user");
+    	System.out.println(user);
+    	return user;
+    }
+    
     //获取图形验证码
     @GetMapping(value="/get7")
     public void get7(HttpServletRequest request,HttpServletResponse response) throws IOException {

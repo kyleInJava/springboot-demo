@@ -11,9 +11,13 @@ import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.session.SessionRepository;
+import org.springframework.session.data.redis.RedisOperationsSessionRepository;
 
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.kyle.demo.common.FastJsonRedisSerializer;
@@ -61,4 +65,11 @@ public class RedisConfig {
         ParserConfig.getGlobalInstance().addAccept("com.kyle.demo.entity.");
         return cacheManager;
     }
+    
+    //将springsession-redis的序列化改为使用fastjson
+    @Bean
+    public RedisSerializer<Object> springSessionDefaultRedisSerializer() {
+        return new FastJsonRedisSerializer(Object.class);
+    }
+    
 }
