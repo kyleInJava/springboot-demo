@@ -1,8 +1,10 @@
 package com.kyle.demo.common;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class ServiceException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
