@@ -36,11 +36,11 @@ spring:
       testOnReturn: false
       #配置监控统计拦截的filters，去掉后监控界面sql将无法统计
       filters: stat
-  redis: 
+  redis:
     database: 0
-    host: 192.168.242.128
+    host: 192.168.242.137
     port: 6379
-    password: 
+    password:
     jedis:
       pool:
         max-active: 600

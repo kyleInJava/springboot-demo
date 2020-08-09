@@ -7,7 +7,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-//@MapperScan("com.kyle.demo.dao")
+@MapperScan("com.kyle.demo.dao")
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 1800)
 public class SpringbootDemoApplication {
 

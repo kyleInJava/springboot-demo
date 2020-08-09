@@ -45,12 +45,12 @@ public class UserController {
     
     
     @GetMapping("/hello")
-    public User getUser(String name ,int age) {
+    public User getUser(String name ,int age,HttpServletRequest request) {
         return new User();
     }
     
     @PostMapping("/get")
-    public User getUser(@RequestBody @Validated({DUR.class})User user) {
+    public User getUser(@RequestBody/* @Validated({DUR.class})*/User user) {
 //    	Set<ConstraintViolation<User>> validate = validator.validate(user, CUD.class);
 //    	validate.forEach((t) -> System.out.println(t.getMessage()));
         return userService.getUser(user);
